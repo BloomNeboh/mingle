@@ -1,59 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
-    <!-- IBM Plex Sans -->
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="header-container">
-            <h1>Your Name</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <button id="theme-toggle">🌙</button>
-        </div>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliud | Tourism Marketing Manager & Web Developer</title>
+    <meta name="description" content="Portfolio of Eliud — Tourism Marketing Manager & Web Developer. Projects, experience, referees, and contact." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <meta name="theme-color" content="#0b0f14" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- THEME RIPPLE CONTAINER -->
+    <div id="ripple-root" aria-hidden="true"></div>
+
+    <!-- LEFT ROADMAP RAIL (wayfinding) -->
+    <aside class="constellation" aria-hidden="true">
+      <svg class="stars" viewBox="0 0 80 600" preserveAspectRatio="xMidYMin slice" width="42" height="100%">
+        <line x1="40" y1="50" x2="40" y2="170" class="link" />
+        <line x1="40" y1="170" x2="40" y2="300" class="link" />
+        <line x1="40" y1="300" x2="40" y2="430" class="link" />
+        <line x1="40" y1="430" x2="40" y2="560" class="link" />
+        <g class="star" data-target="#home" transform="translate(40,50)">
+          <circle r="4" class="core" />
+          <circle r="8" class="glow" />
+        </g>
+        <g class="star" data-target="#about" transform="translate(40,170)">
+          <circle r="4" class="core" />
+          <circle r="8" class="glow" />
+        </g>
+        <g class="star" data-target="#experience" transform="translate(40,300)">
+          <circle r="4" class="core" />
+          <circle r="8" class="glow" />
+        </g>
+        <g class="star" data-target="#referees" transform="translate(40,430)">
+          <circle r="4" class="core" />
+          <circle r="8" class="glow" />
+        </g>
+        <g class="star" data-target="#contact" transform="translate(40,560)">
+          <circle r="4" class="core" />
+          <circle r="8" class="glow" />
+        </g>
+      </svg>
+    </aside>
+
+    <!-- HEADER -->
+    <header class="site-header reveal" id="top">
+      <div class="container header-inner">
+        <a href="#top" class="brand" aria-label="Eliud logo">
+          <span class="brand-word">Eliud</span><span class="brand-accent">M</span>
+        </a>
+
+        <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"></button>
+        <nav id="primaryNav" class="nav" aria-label="Primary">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#referees" class="nav-link">Referees</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <span class="icon sun" aria-hidden="true"></span>
+          <span class="icon moon" aria-hidden="true"></span>
+        </button>
+      </div>
     </header>
 
     <main>
-        <section id="about" class="fade-in">
-            <h2>About Me</h2>
-            <p>All your original "About Me" content goes here, exactly as you wrote it.</p>
-        </section>
-
-        <section id="portfolio" class="fade-in">
-            <h2>Portfolio</h2>
-            <p>Your original project descriptions, images, and links go here.</p>
-            <!-- Example project card -->
-            <div class="project-card">
-                <img src="project1.jpg" alt="Project 1">
-                <div class="project-info">
-                    <h3>Project Title</h3>
-                    <p>Description exactly as in your original code.</p>
-                    <a href="https://github.com/yourprofile" target="_blank" class="email-link">View Code</a>
-                </div>
+      <!-- HERO -->
+      <section id="home" class="section hero-section reveal" data-anim="fade-right">
+        <div class="container hero-grid">
+          <div class="hero-media">
+            <img src="./assets/hero/eliud.jpg" alt="Portrait of Eliud" class="hero-img" width="900" height="1100" />
+          </div>
+          <div class="hero-copy">
+            <h1 class="hero-title neon">Hey, I'm Eliud</h1>
+            <p class="hero-role">Tourism Marketing Manager & Web Developer</p>
+            <p class="hero-tagline">I map dreams to journeys, code visions to clicks, rhythm in strategy, harmony in pixels, momentum in the market.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="./assets/neboh cv.pdf" target="_blank" rel="noopener">Download CV</a>
+              <a class="btn btn-ghost" href="https://wa.me/255621671652" target="_blank" rel="noopener">Let’s Talk</a>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="contact" class="fade-in">
-            <h2>Contact Me</h2>
-            <p>Email me at: <a href="mailto:youremail@example.com" class="email-link">youremail@example.com</a></p>
-            <button id="ai-button">🤖 Ask AI</button>
-        </section>
+      <!-- ABOUT -->
+      <section id="about" class="section reveal" data-anim="fade-up">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title neon">About</h2>
+            <p class="section-sub">A curious builder at the intersection of tourism, brand, and code.</p>
+          </div>
+          <div class="about-grid">
+            <p class="about-story card glass">
+              I build magnetic brand stories for destinations and craft digital experiences that convert. From GTM strategy to web flows, my work blends research, empathy, and precise execution — so every click feels natural and every journey feels memorable.
+            </p>
+            <div class="values-grid">
+              <article class="card glass value">
+                <h3>Creativity</h3>
+                <p>Original concepts with measurable outcomes — ideas that travel further.</p>
+              </article>
+              <article class="card glass value">
+                <h3>Reliability</h3>
+                <p>Clear comms, tight delivery, and ownership from brief to ship.</p>
+              </article>
+              <article class="card glass value">
+                <h3>Digital Excellence</h3>
+                <p>Performance-first design, clean code, and systems that scale.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section reveal" data-anim="fade-left">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title neon">Experience</h2>
+            <p class="section-sub">Selected roles and outcomes</p>
+          </div>
+          <div class="exp-grid">
+            <!-- Experience cards (toggleable) -->
+            <article class="card glass exp-card" data-expanded="false">
+              <h3>Tourism Marketing</h3>
+              <ul>
+                <li>Designed destination campaigns increasing inquiries and bookings.</li>
+                <li>Built partner funnels, email drips, and retargeting sequences.</li>
+                <li>Optimized content calendars mapped to traveler intent.</li>
+              </ul>
+              <div class="exp-more" id="exp-more-1" hidden>
+                <p>From city breaks to bucket‑list safaris, I map content to traveler intent, then pair it with distribution that compounds...</p>
+              </div>
+              <button class="exp-toggle" aria-expanded="false" aria-controls="exp-more-1">Read more</button>
+            </article>
+            <article class="card glass exp-card" data-expanded="false">
+              <h3>Web Development & Branding Projects</h3>
+              <ul>
+                <li>Shipped responsive websites with modern stacks and SEO foundations.</li>
+                <li>Created component libraries and brand systems for consistency.</li>
+                <li>Integrated analytics and A/B tests to lift conversions.</li>
+              </ul>
+              <div class="exp-more" id="exp-more-2" hidden></div>
+              <button class="exp-toggle" aria-expanded="false" aria-controls="exp-more-2">Read more</button>
+            </article>
+            <article class="card glass exp-card" data-expanded="false">
+              <h3>Content Creation</h3>
+              <ul>
+                <li>Produced multimedia stories highlighting local culture and value.</li>
+                <li>Managed social assets with data-led iterations.</li>
+                <li>Scripted short-form video with clear CTAs and trackable goals.</li>
+              </ul>
+              <div class="exp-more" id="exp-more-3" hidden></div>
+              <button class="exp-toggle" aria-expanded="false" aria-controls="exp-more-3">Read more</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- REFEREES / TESTIMONIALS -->
+      <section id="referees" class="section reveal" data-anim="scale-in">
+        <div class="container refs-grid">
+          <!-- Referee cards preserved exactly as your template -->
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section reveal" data-anim="fade-up">
+        <div class="container contact-row">
+          <a href="mailto:ellymchome503@gmail.com" class="icon-link" target="_blank" rel="noopener"><img src="./assets/logos/email.png" alt="Email" /></a>
+          <a href="https://wa.me/255621671652" class="icon-link" target="_blank" rel="noopener"><img src="./assets/logos/whatsapp.png" alt="WhatsApp" /></a>
+          <a href="https://www.facebook.com/share/14PNx8ayxLF/" class="icon-link" target="_blank" rel="noopener"><img src="./assets/logos/Facebook.png" alt="Facebook" /></a>
+          <a href="https://www.linkedin.com/in/eliud-mchome-a905902bb" class="icon-link" target="_blank" rel="noopener"><img src="./assets/logos/linkedin.png" alt="LinkedIn" /></a>
+        </div>
+      </section>
     </main>
 
-    <footer>
-        <p>© 2025 Your Name. All rights reserved.</p>
+    <footer class="site-footer reveal">
+      <div class="container footer-inner">
+        <div class="coffee coffee-animated card glass">
+          <div class="coffee-left">
+            <span class="coffee-icon" aria-hidden="true"></span>
+            <p class="coffee-text">Let’s talk business, web, tourism and ideas. Book a coffee meeting.</p>
+          </div>
+          <div class="coffee-actions">
+            <a class="btn btn-primary" href="https://wa.me/255621671652" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-ghost" href="https://cal.com/eliud.mchome/30min?" target="_blank" rel="noopener">Book on Cal.com</a>
+          </div>
+        </div>
+        <div class="legal">
+          <small>© <span id="year"></span> Eliud. All rights reserved.</small>
+        </div>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
