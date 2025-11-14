@@ -7,15 +7,15 @@
     <meta name="description" content="Portfolio of Eliud — Tourism Marketing Manager & Web Developer. Projects, experience, referees, and contact." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <meta name="theme-color" content="#0b0f14" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- THEME RIPPLE CONTAINER -->
+    <!-- RIPPLE ROOT -->
     <div id="ripple-root" aria-hidden="true"></div>
 
-    <!-- LEFT ROADMAP RAIL (wayfinding) -->
+    <!-- LEFT ROADMAP RAIL -->
     <aside class="constellation" aria-hidden="true">
       <svg class="stars" viewBox="0 0 80 600" preserveAspectRatio="xMidYMin slice" width="42" height="100%">
         <line x1="40" y1="50" x2="40" y2="170" class="link" />
@@ -124,7 +124,6 @@
             <p class="section-sub">Selected roles and outcomes</p>
           </div>
           <div class="exp-grid">
-            <!-- Experience cards (toggleable) -->
             <article class="card glass exp-card" data-expanded="false">
               <h3>Tourism Marketing</h3>
               <ul>
@@ -133,10 +132,16 @@
                 <li>Optimized content calendars mapped to traveler intent.</li>
               </ul>
               <div class="exp-more" id="exp-more-1" hidden>
-                <p>From city breaks to bucket‑list safaris, I map content to traveler intent, then pair it with distribution that compounds...</p>
+                <p>From city breaks to bucket‑list safaris, I map content to traveler intent, then pair it with distribution that compounds. I build partner co‑marketing, nurture sequences, and remarketing paths that lift qualified leads while staying on brand.</p>
+                <ul>
+                  <li>Devised geo‑targeted creative and landing pages for seasonal peaks.</li>
+                  <li>Developed multi‑touch attribution dashboards for campaign clarity.</li>
+                  <li>Negotiated influencer/media buys tied to measurable KPIs.</li>
+                </ul>
               </div>
               <button class="exp-toggle" aria-expanded="false" aria-controls="exp-more-1">Read more</button>
             </article>
+
             <article class="card glass exp-card" data-expanded="false">
               <h3>Web Development & Branding Projects</h3>
               <ul>
@@ -144,9 +149,17 @@
                 <li>Created component libraries and brand systems for consistency.</li>
                 <li>Integrated analytics and A/B tests to lift conversions.</li>
               </ul>
-              <div class="exp-more" id="exp-more-2" hidden></div>
+              <div class="exp-more" id="exp-more-2" hidden>
+                <p>My builds favor clarity and speed — accessible UI, clean information architecture, and design tokens for consistency. I implement analytics and test hypotheses rapidly, turning insights into incremental lifts.</p>
+                <ul>
+                  <li>Implemented schema, OG tags, and performance budgets.</li>
+                  <li>Set up component libraries with documented variants and states.</li>
+                  <li>Ran iterative A/B tests on CTAs, layout, and copy for uplift.</li>
+                </ul>
+              </div>
               <button class="exp-toggle" aria-expanded="false" aria-controls="exp-more-2">Read more</button>
             </article>
+
             <article class="card glass exp-card" data-expanded="false">
               <h3>Content Creation</h3>
               <ul>
@@ -154,31 +167,100 @@
                 <li>Managed social assets with data-led iterations.</li>
                 <li>Scripted short-form video with clear CTAs and trackable goals.</li>
               </ul>
-              <div class="exp-more" id="exp-more-3" hidden></div>
+              <div class="exp-more" id="exp-more-3" hidden>
+                <p>I architect narratives that move editorial calendars anchored to audience needs, evergreen assets for compounding reach, and campaigns that connect brand voice to traveler emotion.</p>
+                <ul>
+                  <li>Directed photo/video shoots with clear storyboards and deliverables.</li>
+                  <li>Repurposed long‑form content into high‑retention short formats.</li>
+                  <li>Aligned creators and partners with brand guidelines and goals.</li>
+                </ul>
+              </div>
               <button class="exp-toggle" aria-expanded="false" aria-controls="exp-more-3">Read more</button>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- REFEREES / TESTIMONIALS -->
+      <!-- REFEREES -->
       <section id="referees" class="section reveal" data-anim="scale-in">
-        <div class="container refs-grid">
-          <!-- Referee cards preserved exactly as your template -->
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title neon">Referees</h2>
+            <p class="section-sub">Trusted partners and guardians</p>
+          </div>
+          <div class="refs-grid">
+            <article class="card glass ref-card">
+              <div class="ref-header">
+                <img src="./assets/refs/abuu.jpg" alt="Referee 1" class="ref-avatar" width="320" height="320" loading="lazy" />
+                <div>
+                 <h3 class="ref-name">Abuu Karata</h3>
+                  <p class="ref-role">General Manager, Airport Planet Lodge</p>
+                </div>
+                <a class="wa" href="https://wa.me/255753046214" target="_blank" rel="noopener" aria-label="WhatsApp Abuu">
+                  <img src="./assets/logos/whatsapp.png" alt="WhatsApp" />
+                </a>
+              </div>
+              <p class="ref-quote">Eliud translates abstract brand ambition into practical systems — our destination launch felt cinematic yet grounded, and the site funnel finally worked like a rhythm you can trust.</p>
+            </article>
+
+            <article class="card glass ref-card">
+              <div class="ref-header">
+                <img src="./assets/refs/benson.jpg" alt="Referee 2" class="ref-avatar" width="320" height="320" loading="lazy" />
+                <div>
+                   <h3 class="ref-name">Alex Benson Sichona</h3>
+                  <p class="ref-role">Ass. Lecturer, University of Dar es Salaam</p>
+                </div>
+                <a class="wa" href="https://wa.me/255715224274" target="_blank" rel="noopener" aria-label="WhatsApp Benson">
+                  <img src="./assets/logos/whatsapp.png" alt="WhatsApp" />
+                </a>
+              </div>
+              <p class="ref-quote">He built a clean, fast web experience and aligned the content engine to our ICP — the lift in qualified leads was immediate and sustained.</p>
+            </article>
+
+            <article class="card glass ref-card">
+              <div class="ref-header">
+                <img src="./assets/refs/maria.jpg" alt="Referee 3" class="ref-avatar" width="320" height="320" loading="lazy" />
+                <div>
+                 <h3 class="ref-name">Maria Donath Labila</h3>
+                  <p class="ref-role">Tour Operator, Tupande Usambara Cultural Tour</p>
+                </div>
+                <a class="wa" href="https://wa.me/255763021922" target="_blank" rel="noopener" aria-label="WhatsApp Maria">
+                  <img src="./assets/logos/whatsapp.png" alt="WhatsApp" />
+                </a>
+              </div>
+              <p class="ref-quote">From the first brief, Eliud brought clarity and calm — crisp strategy, tasteful visuals, and delivery that made us look effortlessly premium.</p>
+            </article>
+          </div>
         </div>
       </section>
 
       <!-- CONTACT -->
       <section id="contact" class="section reveal" data-anim="fade-up">
-        <div class="container contact-row">
-          <a href="mailto:ellymchome503@gmail.com" class="icon-link" target="_blank" rel="noopener"><img src="./assets/logos/email.png" alt="Email" /></a>
-          <a href="https://wa.me/255621671652" class="icon-link" target="_blank" rel="noopener"><img src="./assets/logos/whatsapp.png" alt="WhatsApp" /></a>
-          <a href="https://www.facebook.com/share/14PNx8ayxLF/" class="icon-link" target="_blank" rel="noopener"><img src="./assets/logos/Facebook.png" alt="Facebook" /></a>
-          <a href="https://www.linkedin.com/in/eliud-mchome-a905902bb" class="icon-link" target="_blank" rel="noopener"><img src="./assets/logos/linkedin.png" alt="LinkedIn" /></a>
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title neon">Contact</h2>
+            <p class="section-sub">Let's connect👇</p>
+          </div>
+
+          <div class="contact-row">
+            <a href="mailto:ellymchome503@gmail.com" class="icon-link" target="_blank" rel="noopener" aria-label="Email">
+              <img src="./assets/logos/email.png" alt="Email" />
+            </a>
+            <a href="https://wa.me/255621671652" class="icon-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <img src="./assets/logos/whatsapp.png" alt="WhatsApp" />
+            </a>
+            <a href="https://www.facebook.com/share/14PNx8ayxLF/" class="icon-link" target="_blank" rel="noopener" aria-label="Facebook">
+              <img src="./assets/logos/Facebook.png" alt="Facebook" />
+            </a>
+            <a href="https://www.linkedin.com/in/eliud-mchome-a905902bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="icon-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <img src="./assets/logos/linkedin.png" alt="LinkedIn" />
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- FOOTER / COFFEE CHAT -->
     <footer class="site-footer reveal">
       <div class="container footer-inner">
         <div class="coffee coffee-animated card glass">
