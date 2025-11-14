@@ -1,38 +1,76 @@
-// ==========================
-// Theme Toggle
-// ==========================
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-});
+/* -------------------------
+   REVEAL ON SCROLL
+---------------------------*/
+const revealElements = document.querySelectorAll('.reveal');
 
-// ==========================
-// Fade-in on Scroll
-// ==========================
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
+const revealOnScroll = () => {
+  const windowHeight = window.innerHeight;
+  revealElements.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add('active');
+    }
+  });
 };
 
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.style.animationDelay = "0.3s";
-        entry.target.classList.add('appear');
-        observer.unobserve(entry.target);
-    });
-}, appearOptions);
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
 
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
+/* -------------------------
+   THEME TOGGLE
+---------------------------*/
+const themeToggle = document.getElementById('themeToggle');
+themeToggle.addEventListener('click', () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
 });
 
-// ==========================
-// AI Button
-// ==========================
-const aiButton = document.getElementById('ai-button');
-aiButton.addEventListener('click', () => {
-    alert("AI Assistant would respond here! Customize to connect your AI service.");
+/* -------------------------
+   EXPERIENCE CARD EXPAND
+---------------------------*/
+const expToggles = document.querySelectorAll('.exp-toggle');
+
+expToggles.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.getAttribute('aria-controls');
+    const targetEl = document.getElementById(targetId);
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+
+    targetEl.hidden = expanded;
+    btn.setAttribute('aria-expanded', !expanded);
+  });
+});
+
+/* -------------------------
+   DYNAMIC YEAR IN FOOTER
+---------------------------*/
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* -------------------------
+   RIPPLE EFFECT
+---------------------------*/
+document.querySelectorAll('.btn').forEach(button => {
+  button.addEventListener('click', e => {
+    const circle = document.createElement('span');
+    circle.classList.add('ripple');
+    const rect = button.getBoundingClientRect();
+    circle.style.left = `${e.clientX - rect.left}px`;
+    circle.style.top = `${e.clientY - rect.top}px`;
+    button.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
+  });
+});
+
+/* -------------------------
+   LEFT ROADMAP STAR NAV
+---------------------------*/
+const stars = document.querySelectorAll('.star');
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    const target = document.querySelector(star.dataset.target);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 });
