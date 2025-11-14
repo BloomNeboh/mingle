@@ -1,76 +1,71 @@
-/* -------------------------
-   REVEAL ON SCROLL
----------------------------*/
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealOnScroll = () => {
-  const windowHeight = window.innerHeight;
-  revealElements.forEach(el => {
-    const elementTop = el.getBoundingClientRect().top;
-    if (elementTop < windowHeight - 100) {
-      el.classList.add('active');
-    }
-  });
-};
-
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-/* -------------------------
+/* =======================
    THEME TOGGLE
----------------------------*/
-const themeToggle = document.getElementById('themeToggle');
-themeToggle.addEventListener('click', () => {
-  const currentTheme = document.documentElement.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', newTheme);
+======================= */
+const themeToggle = document.getElementById("themeToggle");
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
 });
 
-/* -------------------------
-   EXPERIENCE CARD EXPAND
----------------------------*/
-const expToggles = document.querySelectorAll('.exp-toggle');
+// Persist theme on reload
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.documentElement.setAttribute("data-theme", savedTheme);
+}
 
-expToggles.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const targetId = btn.getAttribute('aria-controls');
-    const targetEl = document.getElementById(targetId);
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-
-    targetEl.hidden = expanded;
-    btn.setAttribute('aria-expanded', !expanded);
+/* =======================
+   EXPERIENCE TOGGLE
+======================= */
+document.querySelectorAll(".exp-toggle").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.getAttribute("aria-controls");
+    const target = document.getElementById(targetId);
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    target.hidden = expanded;
+    btn.setAttribute("aria-expanded", !expanded);
   });
 });
 
-/* -------------------------
-   DYNAMIC YEAR IN FOOTER
----------------------------*/
-document.getElementById('year').textContent = new Date().getFullYear();
+/* =======================
+   SCROLL REVEAL
+======================= */
+const revealElements = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
 
-/* -------------------------
+revealElements.forEach((el) => revealObserver.observe(el));
+
+/* =======================
    RIPPLE EFFECT
----------------------------*/
-document.querySelectorAll('.btn').forEach(button => {
-  button.addEventListener('click', e => {
-    const circle = document.createElement('span');
-    circle.classList.add('ripple');
-    const rect = button.getBoundingClientRect();
-    circle.style.left = `${e.clientX - rect.left}px`;
-    circle.style.top = `${e.clientY - rect.top}px`;
-    button.appendChild(circle);
+======================= */
+const rippleRoot = document.getElementById("ripple-root");
+
+document.querySelectorAll(".btn, .icon-link").forEach((el) => {
+  el.addEventListener("click", (e) => {
+    const circle = document.createElement("span");
+    const diameter = Math.max(el.clientWidth, el.clientHeight);
+    const radius = diameter / 2;
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - el.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${e.clientY - el.getBoundingClientRect().top - radius}px`;
+    circle.classList.add("ripple");
+    el.appendChild(circle);
     setTimeout(() => circle.remove(), 600);
   });
 });
 
-/* -------------------------
-   LEFT ROADMAP STAR NAV
----------------------------*/
-const stars = document.querySelectorAll('.star');
-stars.forEach(star => {
-  star.addEventListener('click', () => {
-    const target = document.querySelector(star.dataset.target);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
+/* =======================
+   FOOTER YEAR
+======================= */
+document.getElementById("year").textContent = new Date().getFullYear();
